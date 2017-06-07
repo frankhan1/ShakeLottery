@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blank Cordova Mobile App Project Template (Lite)</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">     
+
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="js/shake.js"></script>
+    <script src="cordova.js"></script>        
+    <script src="js/app.js"></script>          
+    <script src="xdk/init-dev.js"></script>   
+    <script src="jquery.min.js"></script>
+
+  <script type="text/javascript">
+        var x = -1 ;
+        var demo = [];
+        var d1 = 0 ; var d2 = 0;  var d3 = 0; var d4 = 0; var d5 = 0; var d6 = 0;  
+        function myFunction() {
+                for ( i = 0 ; i < 3 ; i++ ) {
+			          var s = $("input[name='radio']").eq(i).prop('checked');
+			          if ( s ) {
+			              x = i 
+			          }
+			      }; 
+                if (x == -1) {
+                  $("#report").text("請選擇彩券種類? The Lottory must be choiced out")
+                } else {
+            document.addEventListener(
+                "deviceready", 
+                function () {
+                    var myShakeEvent = new Shake({
+                    threshold: 10
+                    });
+                    myShakeEvent.start();
+                    window.addEventListener(    
+                        'shake', 
+                        function () {
+                            navigator.notification.beep(1);
+                switch ( x ) {
+			   
+			    case 0 : 
+      d1 = Math.floor(Math.random()*49+1);
+      d2 = Math.floor(Math.random()*49+1);
+      d3 = Math.floor(Math.random()*49+1);
+      d4 = Math.floor(Math.random()*49+1);
+      d5 = Math.floor(Math.random()*49+1);
+      d6 = Math.floor(Math.random()*49+1);
+      
+// SORTING 
+      demo[0] = d1; demo[1] = d2; demo[2] = d3; demo[3] = d4; demo[4] = d5; demo[5] = d6;
+      demo.sort(function(a, b){return a-b} ) ;
+      $("input[name='radio1']").prop('checked','checked');
+       
+// DELETE DUPLICATE
+         while ($("input[name='radio1']").prop('checked')) {
+            $("input[name='radio1']").prop('checked','');
+            d1 = demo[0] ; d2 = demo[1] ; d3 = demo[2] ; d4 = demo[3] ; d5 = demo[4] ; d6 = demo[5] ;
+            
+             while ( d1 == d2  ) {
+                d2 = Math.floor(Math.random()*49+1); 
+                $("input[name='radio1']").prop('checked','checked');
+                 } ;
+             while ( d2 == d3  ) {
+                d3 = Math.floor(Math.random()*49+1);
+                $("input[name='radio1']").prop('checked','checked');
+                 } ;
+            while ( d3 == d4  ) {
+                d4 = Math.floor(Math.random()*49+1);   
+                $("input[name='radio1']").prop('checked','checked');
+                  } ;
+            while ( d4 == d5  ) {
+                d5 = Math.floor(Math.random()*49+1);
+                $("input[name='radio1']").prop('checked','checked');
+                 } ;
+            while ( d5 == d6  ) {
+                d6 = Math.floor(Math.random()*49+1); 
+                $("input[name='radio1']").prop('checked','checked');
+                } ;
+
+         if ($("input[name='radio1']").prop('checked')) {
+            // SORTING AGAIN     
+            demo[0] = d1; demo[1] = d2; demo[2] = d3; demo[3] = d4; demo[4] = d5; demo[5] = d6;
+            demo.sort(function(a, b){return a-b} ) ;
+        } else {
+                w = 0;
+                $("input[name='radio1']").prop('checked','');
+        }
+      }
+
+        $("#report").text("大樂透 :"+demo);
+        demo = [" "];
+        break;
+                case 1 :
+      d1 = Math.floor(Math.random()*39+1);
+      d2 = Math.floor(Math.random()*39+1);
+      d3 = Math.floor(Math.random()*39+1);
+      d4 = Math.floor(Math.random()*39+1);
+      d5 = Math.floor(Math.random()*39+1);
+      
+// SORTING 
+      demo[0] = d1; demo[1] = d2; demo[2] = d3; demo[3] = d4; demo[4] = d5;
+      demo.sort(function(a, b){return a-b} ) ;
+      $("input[name='radio1']").prop('checked','checked');
+       
+// DELETE DUPLICATE
+         while ($("input[name='radio1']").prop('checked')) {
+            $("input[name='radio1']").prop('checked','');
+            d1 = demo[0] ; d2 = demo[1] ; d3 = demo[2] ; d4 = demo[3] ; d5 = demo[4] ; 
+            
+             while ( d1 == d2  ) {
+                d2 = Math.floor(Math.random()*39+1); 
+                $("input[name='radio1']").prop('checked','checked');
+                 } ;
+             while ( d2 == d3  ) {
+                d3 = Math.floor(Math.random()*39+1);
+                $("input[name='radio1']").prop('checked','checked');
+                 } ;
+            while ( d3 == d4  ) {
+                d4 = Math.floor(Math.random()*39+1);   
+                $("input[name='radio1']").prop('checked','checked');
+                  } ;
+            while ( d4 == d5  ) {
+                d5 = Math.floor(Math.random()*39+1);
+                $("input[name='radio1']").prop('checked','checked');
+                 } ;
+
+         if ($("input[name='radio1']").prop('checked')) {
+            // SORTING AGAIN     
+            demo[0] = d1; demo[1] = d2; demo[2] = d3; demo[3] = d4; demo[4] = d5;
+            demo.sort(function(a, b){return a-b} ) ;
+        } else {
+                w = 0;
+                $("input[name='radio1']").prop('checked','');
+        }
+      }
+
+        $("#report").text("今彩539 :"+demo);
+        demo = [" "];
+        break;
+			    case 2 :
+			        $("#report").text("彩券種類=威力彩 ");
+                    alert("choice 2"); 
+			        break;
+			   }
+                        }, 
+                    false);
+                }, // end of deviceready
+                false
+            )
+
+                    }
+              }
+
+</script>
+</head>
+
+
+<body style="background-color:orange">
+    <form name="myForm">
+        <header>
+            <h1 style="color:white; background-color:blue" "font-size:300%;" "text-align:center;"><b>請選擇彩券種類<br>再﹌﹌搖﹋搖﹌﹌<br>祝您中獎!!</b></h1>
+        </header>
+
+         </form> 
+         <img src="http://www.taiwanlottery.com.tw/images/twl_index_logo_01.jpg" width="400" height="300"></src>
+         <div>
+            <h1><input type="radio" name="radio" />大樂透 
+            <input type="radio" name="radio" />今彩539
+            <input type="radio" name="radio" />威力彩</h1>
+         </div>
+        <br> 
+        <button onclick="myFunction()"><h1><b>請按確定，再搖一搖!</b></h1></button><br> 
+     <input type="radio" name="radio1" checked>祝您中獎
+    <div id="report" style="height:200px;width:500px;padding:10px;margin:3px;border:1px solid red;background-color:yellow;"></div>
+    
+ </body>
+</html>
